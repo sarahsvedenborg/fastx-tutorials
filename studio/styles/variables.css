@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+:root {
+  /* Brand colors */
+  --brand-primary: #1a0733;
+  --brand-primary--inverted: #ffffff;
+  --brand-secondary: #ffa800;
+  --brand-secondary--inverted: #fff;
+
+  --main-navigation-color: var(--brand-primary);
+  --main-navigation-color--inverted: var(--brand-primary--inverted);
+
+  /* Typography */
+  /*   --font-family-sans-serif: "Dosis", sans-serif; */
+  --font-family-sans-serif: "Monstserrat", sans-serif;
+}
+
+div[class^="Navbar"] [class^="DefaultButton"][class*="selected"] > span {
+  background-color: var(--brand-primary) !important;
+  color: var(--brand-primary--inverted) !important;
+}
+
+div[class^="PanelItem_linkIsSelected"] {
+  background-color: var(--brand-primary-secondary) !important;
+  color: var(--brand-primary--inverted) !important;
+}
