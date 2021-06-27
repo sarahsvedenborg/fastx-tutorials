@@ -1,0 +1,124 @@
+.toggle {
+  padding: 0 3em;
+  .barFalse {
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.3)
+    );
+    .symbol {
+      width: 45px;
+      height: 45px;
+      background-size: 100% 100%;
+      transform-origin: center center;
+      transform: translate(30px, -7px);
+      transition: all 0.5s ease-out;
+    }
+  }
+  .barTrue {
+    transition: flex-direction 1s;
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.3)
+    );
+    .symbol {
+      width: 45px;
+      height: 45px;
+      transform: translate(-10px, -7px);
+      background-size: 100% 100%;
+      transition: all 0.5s ease-out;
+      transform-origin: center center;
+    }
+  }
+}
+
+//Styles only for default toggle
+.default {
+  .barFalse {
+    background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.3)
+    );
+    border: 1px solid grey;
+    .symbol {
+      flex-basis: auto;
+      background-color: #35165c;
+      border: 1px solid
+        radial-gradient(
+          ellipse at top left,
+          rgba(255, 255, 255, 0.6),
+          rgba(255, 255, 255, 0.2)
+        );
+      box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 3px 3px 6px rgba(255, 255, 255, 0.1);
+      width: 25px;
+      height: 25px;
+      border-radius: 15px;
+      transform: translate(31px, 1px);
+    }
+  }
+  .barTrue {
+    background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.3)
+    );
+    border: 1px solid grey;
+    .symbol {
+      flex-basis: auto;
+      background-color: #35165c;
+      border: 1px solid
+        radial-gradient(
+          ellipse at top left,
+          rgba(255, 255, 255, 0.6),
+          rgba(255, 255, 255, 0.2)
+        );
+      box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 3px 3px 6px rgba(255, 255, 255, 0.1);
+      width: 25px;
+      height: 25px;
+      border-radius: 15px;
+      transform: translate(1px, 1px);
+    }
+  }
+}
+
+//Styles only for mode toggle
+.mode {
+  .barFalse {
+    border: 1px solid orange;
+    .symbol {
+      background-image: url("../../public/toggleComponents/toggleLight.png");
+    }
+  }
+  .barTrue {
+    border: 1px solid purple;
+    .symbol {
+      background-image: url("../../public/toggleComponents/toggleNight.png");
+    }
+  }
+}
+
+//Styles only for language toggle
+.language {
+  .barFalse {
+    border: 1px solid blue;
+    .symbol {
+      background-image: url("../../public/toggleComponents/toggleEnglish.png");
+    }
+  }
+  .barTrue {
+    border: 1px solid red;
+    .symbol {
+      background-image: url("../../public/toggleComponents/toggleNorwegian.png");
+    }
+  }
+}

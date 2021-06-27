@@ -1,0 +1,80 @@
+.tutorialPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    line-height: 1.5em;
+  }
+  .header {
+    width: 100%;
+    padding-top: 8em;
+    padding-bottom: 4em;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 5em;
+    background-color: var(--dm-background-color);
+    .scopeTag {
+      font-family: var(--font-body);
+    }
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 50px;
+      margin-top: 0;
+    }
+    .presentationToggle {
+      display: flex;
+      flex-direction: row;
+      text-transform: uppercase;
+      align-items: center;
+      font-weight: bold;
+      justify-content: center;
+    }
+  }
+  .contentContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: var(--font-body);
+    .sideMenu {
+      flex-basis: 25%;
+      line-height: 1.5em;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      text-align: right;
+      ul {
+        list-style-type: none;
+        margin-right: 30px;
+        padding-right: 10px;
+        li {
+          padding-bottom: 5px;
+        }
+        li:hover {
+          font-weight: bold;
+        }
+      }
+    }
+    .content {
+      flex-basis: 70%;
+      .intro {
+        width: 90%;
+        .objectives {
+          h3 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+          }
+        }
+      }
+      code {
+        background-color: #423356;
+        padding: 1em;
+      }
+      pre {
+        margin: 2em 0em;
+      }
+    }
+  }
+}
