@@ -46,7 +46,7 @@ body {
     background-color: var(--dm-background-color);
     color: white;
     .contentContainer {
-      ul {
+      ul:first-of-type {
         border-right: 1px solid white;
       }
       code {
