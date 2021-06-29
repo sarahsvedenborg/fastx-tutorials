@@ -2,7 +2,8 @@
   width: 100%;
   /*max-width: 1024px; */
   background-image: url("../public/HeaderBackground.svg");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 100%;
 }
 
@@ -138,7 +139,7 @@
 .tutorials {
   width: 100%;
   max-width: var(--width-max);
-  margin: 0 auto;
+  margin: 10em auto 0 auto;
   ul {
     width: 100%;
     display: flex;
@@ -149,7 +150,6 @@
     padding: 3em 0;
 
     li {
-      /* flex-basis: 30%; */
       color: var(--dm-background-color);
       width: 320px;
       height: 290px;
@@ -161,11 +161,11 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      padding: 10px 10px 10px 50px;
-      /*      width: 250px; */
-      /*   padding: 10px; */
-      border: 1px solid limegreen;
       margin-bottom: 3em;
+      a {
+        width: 100%;
+        padding: 0 30px 0 50px;
+      }
     }
   }
 }
@@ -190,6 +190,8 @@
   /* color: var(--dm-background-color); */
   /*   color: white;
   padding: 20px; */
+  /*   padding: 0 10px 0 50px; */
+
   h6 {
     font-family: var(--font-body);
     margin-bottom: 0;
@@ -199,7 +201,6 @@
     font-family: var(--font-heading);
     font-size: 30px;
     margin-top: 0;
-    width: 100%;
     overflow-wrap: break-word;
   }
 }

@@ -59,10 +59,10 @@
         );
       box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
       box-shadow: inset 3px 3px 6px rgba(255, 255, 255, 0.1);
-      width: 25px;
-      height: 25px;
+      width: 26px;
+      height: 26px;
       border-radius: 15px;
-      transform: translate(31px, 1px);
+      transform: translate(30px, 1px);
     }
   }
   .barTrue {
@@ -83,8 +83,8 @@
         );
       box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
       box-shadow: inset 3px 3px 6px rgba(255, 255, 255, 0.1);
-      width: 25px;
-      height: 25px;
+      width: 26px;
+      height: 26px;
       border-radius: 15px;
       transform: translate(1px, 1px);
     }
@@ -94,13 +94,25 @@
 //Styles only for mode toggle
 .mode {
   .barFalse {
-    border: 1px solid orange;
+    /*  border: 2px solid orange; */
+    /*   background: radial-gradient(
+      ellipse at top left,
+      rgba(lightblue, 0.9),
+      rgba(skyblue, 0.9)
+    ); */
+    background-color: ghostwhite;
     .symbol {
       background-image: url("../../public/toggleComponents/toggleLight.png");
     }
   }
   .barTrue {
-    border: 1px solid purple;
+    /*  border: 2px solid gray; */
+    /*  background: radial-gradient(
+      ellipse at top left,
+      rgba(navy, 0.9),
+      rgba(royalblue, 0.9)
+    ); */
+    background-color: ghostwhite;
     .symbol {
       background-image: url("../../public/toggleComponents/toggleNight.png");
     }
@@ -110,13 +122,15 @@
 //Styles only for language toggle
 .language {
   .barFalse {
-    border: 1px solid blue;
+    /*   border: 1px solid blue; */
+    background-color: ghostwhite;
     .symbol {
       background-image: url("../../public/toggleComponents/toggleEnglish.png");
     }
   }
   .barTrue {
-    border: 1px solid red;
+    /*   border: 1px solid red; */
+    background-color: ghostwhite;
     .symbol {
       background-image: url("../../public/toggleComponents/toggleNorwegian.png");
     }

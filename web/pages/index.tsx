@@ -38,7 +38,7 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
             <h1 className={styles.title}>Web tutorials og workshops</h1>
           </div>
           <div className={[styles.child, styles.image].join(" ")}>
-            <object data="hero.svg" />
+            <object data="headerBackground2.svg" />
           </div>
         </div>
 
@@ -72,7 +72,7 @@ export async function getStaticProps({ params }: any) {
   const locale = params?.locale ?? "no";
   const tutorials = await client.fetch(
     `
-      *[_type == "tutorial"]
+      *[_type == "tutorial"]|order(scopeType desc)
     `
   );
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import client from "../../client";
 import styles from "../../styles/tutorial.module.scss";
 import Toggle from "../../components/Toggle";
+import Carousel from "../../components/carousel";
 import { PortableText } from "../../lib/sanity";
 
 interface TutorialProps {
@@ -15,13 +16,15 @@ interface TutorialProps {
     introduction: { no: string; en: string };
     objectives: string[];
     sections: any;
+    slides: any[];
   };
   locale: string;
 }
 
 export default function Tutorial({ tutorial, locale }: TutorialProps) {
   console.log("locale", locale);
-  const { title, scopeType, introduction, objectives, sections } = tutorial;
+  const { title, scopeType, introduction, objectives, sections, slides } =
+    tutorial;
   const [isSlides, setIsSlides] = useState(false);
   const toggleSlides = () => {
     setIsSlides(!isSlides);
@@ -45,41 +48,50 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
           <div style={!isSlides ? { opacity: "0.5" } : undefined}>Slides</div>
         </div>
       </div>
-      <div className={[styles.contentContainer, "contentContainer"].join(" ")}>
-        {Array.isArray(sections) && (
-          <div className={styles.sideMenu}>
-            <ul>
-              <li>
-                <h3>Sections</h3>
-              </li>
-              {sections.map((section) => (
-                <li>{section.title.no}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <div className={styles.content}>
-          <div className={styles.intro}>
-            <p style={{ fontWeight: "bold" }}>{introduction.no}</p>
-            <div className={styles.objectives}>
-              <h3>Objectives</h3>
-              <ol>
-                {Array.isArray(objectives) &&
-                  objectives.map((item) => <li>{item}</li>)}
-              </ol>
+      {isSlides && (
+        <div className={styles.slideshowContainer}>
+          <Carousel slides={slides} />
+        </div>
+      )}
+      {!isSlides && (
+        <div
+          className={[styles.contentContainer, "contentContainer"].join(" ")}
+        >
+          {Array.isArray(sections) && (
+            <div className={styles.sideMenu}>
+              <ul>
+                <li>
+                  <h3>Sections</h3>
+                </li>
+                {sections.map((section) => (
+                  <li>{section.title.no}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <div className={styles.content}>
+            <div className={styles.intro}>
+              <p style={{ fontWeight: "bold" }}>{introduction.no}</p>
+              <div className={styles.objectives}>
+                <h3>Objectives</h3>
+                <ol>
+                  {Array.isArray(objectives) &&
+                    objectives.map((item) => <li>{item}</li>)}
+                </ol>
+              </div>
+            </div>
+            <div className={styles.body}>
+              {Array.isArray(sections) &&
+                sections.map((section) => (
+                  <div>
+                    <h2>{section.title.no}</h2>
+                    <PortableText blocks={section.body} />
+                  </div>
+                ))}
             </div>
           </div>
-          <div className={styles.body}>
-            {Array.isArray(sections) &&
-              sections.map((section) => (
-                <div>
-                  <h2>{section.title.no}</h2>
-                  <PortableText blocks={section.body} />
-                </div>
-              ))}
-          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

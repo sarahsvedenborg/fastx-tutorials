@@ -38,9 +38,12 @@ export const Toggle = ({
   };
 
   return (
-    <div className={[styles.toggle, getStyleClass()].join(" ")}>
+    <div
+      className={[styles.toggle, getStyleClass()].join(" ")}
+      onClick={swapMode}
+    >
       <div className={isDefault ? styles.barTrue : styles.barFalse}>
-        <div className={styles.symbol} onClick={swapMode}></div>
+        <div className={styles.symbol}></div>
       </div>
     </div>
   );
