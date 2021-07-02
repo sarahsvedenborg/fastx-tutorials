@@ -82,3 +82,20 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .tutorialPage {
+    .contentContainer {
+      justify-content: center;
+      .sideMenu {
+        display: none;
+      }
+      .content {
+        flex-basis: 100%;
+        .intro {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

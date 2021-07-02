@@ -96,13 +96,6 @@
   margin-left: 0.5rem;
 } */
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
 /* My css */
 .hero {
   width: 100%;
@@ -202,5 +195,26 @@
     font-size: 30px;
     margin-top: 0;
     overflow-wrap: break-word;
+  }
+}
+
+//mobile phones
+@media (max-width: 600px) {
+  .main {
+    background-image: url("../public/BackgroundMobile.svg");
+    .hero {
+      padding: 3em 1em;
+      .child {
+        .tagline {
+          display: none;
+        }
+        .title {
+          font-size: xxx-large;
+        }
+      }
+      .image {
+        display: none;
+      }
+    }
   }
 }

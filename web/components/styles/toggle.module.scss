@@ -10,11 +10,11 @@
       rgba(255, 255, 255, 0.3)
     );
     .symbol {
-      width: 45px;
-      height: 45px;
+      width: 26px;
+      height: 26px;
       background-size: 100% 100%;
       transform-origin: center center;
-      transform: translate(30px, -7px);
+      transform: translate(30px, 2px);
       transition: all 0.5s ease-out;
     }
   }
@@ -29,9 +29,9 @@
       rgba(255, 255, 255, 0.3)
     );
     .symbol {
-      width: 45px;
-      height: 45px;
-      transform: translate(-10px, -7px);
+      width: 26px;
+      height: 26px;
+      transform: translate(2px, 2px);
       background-size: 100% 100%;
       transition: all 0.5s ease-out;
       transform-origin: center center;
@@ -50,7 +50,12 @@
     border: 1px solid grey;
     .symbol {
       flex-basis: auto;
-      background-color: #35165c;
+      background: radial-gradient(
+        ellipse at top left,
+        rgb(240, 187, 52),
+        rgb(244, 27, 80),
+        rgb(163, 63, 242)
+      );
       border: 1px solid
         radial-gradient(
           ellipse at top left,
@@ -74,13 +79,24 @@
     border: 1px solid grey;
     .symbol {
       flex-basis: auto;
-      background-color: #35165c;
-      border: 1px solid
+      /*  background: radial-gradient(
+        ellipse at top left,
+        rgb(91, 197, 243),
+        rgb(155, 133, 233),
+        rgb(188, 116, 228)
+      ); */
+      background: radial-gradient(
+        ellipse at top left,
+        rgb(240, 187, 52),
+        rgb(244, 27, 80),
+        rgb(163, 63, 242)
+      );
+      /*   border: 1px solid
         radial-gradient(
           ellipse at top left,
           rgba(255, 255, 255, 0.6),
           rgba(255, 255, 255, 0.2)
-        );
+        ); */
       box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
       box-shadow: inset 3px 3px 6px rgba(255, 255, 255, 0.1);
       width: 26px;

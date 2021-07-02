@@ -32,12 +32,14 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
       <main className={styles.main}>
         <div className={styles.hero}>
           <div className={styles.child}>
-            <p className={styles.tagline}>
+            <p className={[styles.tagline, "tagline"].join(" ")}>
               Synlighetsteamet i Xperience Solutions gir deg
             </p>
-            <h1 className={styles.title}>Web tutorials og workshops</h1>
+            <h1 className={[styles.title, "heading"].join(" ")}>
+              Web tutorials og workshops
+            </h1>
           </div>
-          <div className={[styles.child, styles.image].join(" ")}>
+          <div className={[styles.child, styles.image, "image"].join(" ")}>
             <object data="headerBackground2.svg" />
           </div>
         </div>
