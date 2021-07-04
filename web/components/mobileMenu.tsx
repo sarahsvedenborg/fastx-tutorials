@@ -1,7 +1,5 @@
-import Link from "next/link";
+import { useState } from "react";
 import Toggle from "./Toggle";
-import LogoFull from "./icons/LogoFull";
-import MobileMenu from "./mobileMenu";
 
 interface NavigationProps {
   isDarkMode: boolean;
@@ -10,23 +8,21 @@ interface NavigationProps {
   toggleLanguage: Function;
 }
 
-const Navigation = ({
+const MobileMenu = ({
   isDarkMode,
   toggleMode,
   isNorwegian,
   toggleLanguage,
 }: NavigationProps) => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
   return (
-    <nav className="navigation">
-      <div className="navBlock">
-        <Link href="/">
-          <a>
-            {/* <img src="Logo.svg" width="30" /> */}
-            <LogoFull />
-          </a>
-        </Link>
-      </div>
-      <div className="optionsMenu navBlock">
+    <div className="mobileMenuWrapper">
+      <img
+        src="/mobileMenu.png"
+        aria-hidden
+        onClick={() => setMenuOpen(!isMenuOpen)}
+      />
+      <div className={["mobileMenu", isMenuOpen ? "" : "closed"].join(" ")}>
         <Toggle
           toggleType="Mode"
           toggleValue={toggleMode}
@@ -42,14 +38,8 @@ const Navigation = ({
           falseValue="ENG"
         />
       </div>
-      <MobileMenu
-        isDarkMode={isDarkMode}
-        toggleMode={toggleMode}
-        isNorwegian={isNorwegian}
-        toggleLanguage={toggleLanguage}
-      />
-    </nav>
+    </div>
   );
 };
 
-export default Navigation;
+export default MobileMenu;

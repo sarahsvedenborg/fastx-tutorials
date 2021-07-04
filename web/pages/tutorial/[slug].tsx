@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import client from "../../client";
-import styles from "../../styles/tutorial.module.scss";
 import Toggle from "../../components/Toggle";
 import Carousel from "../../components/carousel";
+import SectionMenu from "../../components/sectionMenu/sectionMenu";
 import { PortableText } from "../../lib/sanity";
 
 interface TutorialProps {
@@ -30,12 +30,15 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
     setIsSlides(!isSlides);
   };
   return (
-    <div className={[styles.tutorialPage, "tutorialPage"].join(" ")}>
-      <div className={styles.header}>
-        <p className={styles.scopeTag}>{scopeType}</p>
+    <div className="tutorialPage">
+      <div className="header">
+        <p className="scopeTag">{scopeType}</p>
         <h2>{title}</h2>
-        <div className={styles.presentationToggle}>
-          <div style={isSlides ? { opacity: "0.5" } : undefined}>
+        <div className="presentationToggle">
+          <div
+            style={isSlides ? { opacity: "0.5" } : undefined}
+            className="label"
+          >
             Full tutorial
           </div>
           <Toggle
@@ -45,20 +48,23 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
             trueValue=" "
             falseValue=" "
           />
-          <div style={!isSlides ? { opacity: "0.5" } : undefined}>Slides</div>
+          <div
+            style={!isSlides ? { opacity: "0.5" } : undefined}
+            className="label"
+          >
+            Slides
+          </div>
         </div>
       </div>
       {isSlides && (
-        <div className={styles.slideshowContainer}>
+        <div className="slideshowContainer">
           <Carousel slides={slides} />
         </div>
       )}
       {!isSlides && (
-        <div
-          className={[styles.contentContainer, "contentContainer"].join(" ")}
-        >
+        <div className="contentContainer">
           {Array.isArray(sections) && (
-            <div className={styles.sideMenu}>
+            <div className="sideMenu">
               <ul>
                 <li>
                   <h3>Sections</h3>
@@ -69,10 +75,13 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
               </ul>
             </div>
           )}
-          <div className={styles.content}>
-            <div className={styles.intro}>
+          <div className="content">
+            <SectionMenu
+              sectionHeadings={sections.map((section) => section.title.no)}
+            />
+            <div className="intro">
               <p style={{ fontWeight: "bold" }}>{introduction.no}</p>
-              <div className={styles.objectives}>
+              <div className="objectives">
                 <h3>Objectives</h3>
                 <ol>
                   {Array.isArray(objectives) &&
@@ -80,7 +89,7 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
                 </ol>
               </div>
             </div>
-            <div className={styles.body}>
+            <div className="body">
               {Array.isArray(sections) &&
                 sections.map((section) => (
                   <div>
@@ -92,6 +101,7 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
           </div>
         </div>
       )}
+      <div className="tutorialFooter">Tutorial footer</div>
     </div>
   );
 }

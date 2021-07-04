@@ -30,3 +30,9 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .navigation .optionsMenu {
+    display: none;
+  }
+}

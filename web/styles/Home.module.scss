@@ -2,19 +2,10 @@
   width: 100%;
   /*max-width: 1024px; */
   background-image: url("../public/HeaderBackground.svg");
-  background-size: contain;
+  background-size: auto 100vh;
   background-repeat: no-repeat;
-  width: 100%;
 }
 
-.footer {
-  width: 100%;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #342547;
-}
 /*
 .title a {
   color: #0070f3;

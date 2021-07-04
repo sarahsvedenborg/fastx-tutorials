@@ -1,6 +1,7 @@
 .toggle {
   padding: 0 3em;
   .barFalse {
+    cursor: pointer;
     width: 60px;
     height: 30px;
     border-radius: 20px;
@@ -19,6 +20,7 @@
     }
   }
   .barTrue {
+    cursor: pointer;
     transition: flex-direction 1s;
     width: 60px;
     height: 30px;

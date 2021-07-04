@@ -1,5 +1,4 @@
 import { urlFor } from "../lib/sanity";
-import styles from "./styles/carousel.module.scss";
 
 interface CarouselProps {
   slides: any[];
@@ -7,11 +6,9 @@ interface CarouselProps {
 
 const Carousel = ({ slides }: CarouselProps) => {
   return (
-    <div className={styles.carousel}>
+    <div className="carousel">
       {Array.isArray(slides) &&
-        slides.map((slide) => (
-          <img className={styles.image} src={urlFor(slide)}></img>
-        ))}
+        slides.map((slide) => <img src={urlFor(slide)}></img>)}
     </div>
   );
 };

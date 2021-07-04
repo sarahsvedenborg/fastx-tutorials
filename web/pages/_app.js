@@ -28,6 +28,9 @@ function MyApp({ Component, pageProps }) {
         isNorwegian={isNorwegian}
       />
       <Component {...pageProps} isDarkMode={isDarkMode} />
+      <footer className="footer">
+        <span>Laget av ...</span>
+      </footer>
     </div>
   );
 }

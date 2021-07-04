@@ -62,10 +62,6 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
           </ul>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <span>Laget av ...</span>
-      </footer>
     </div>
   );
 }

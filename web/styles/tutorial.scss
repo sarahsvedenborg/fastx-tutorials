@@ -41,7 +41,7 @@
     display: flex;
     flex-direction: row;
     max-width: 1024px;
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
     font-family: var(--font-body);
     .sideMenu {
       flex-basis: 25%;
@@ -55,6 +55,7 @@
         padding-right: 10px;
         li {
           padding-bottom: 1em;
+          cursor: pointer;
         }
         li:hover {
           font-weight: bold;
@@ -63,8 +64,8 @@
     }
     .content {
       flex-basis: 70%;
+      padding: 0 1em;
       .intro {
-        width: 90%;
         .objectives {
           h3 {
             font-family: var(--font-heading);
@@ -80,6 +81,11 @@
         margin: 2em 0em;
       }
     }
+  }
+  .tutorialFooter {
+    background-color: grey;
+    width: 100%;
+    padding: 1em;
   }
 }
 
