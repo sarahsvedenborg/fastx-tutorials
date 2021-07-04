@@ -1,0 +1,32 @@
+{
+  "name": "Fast-X tutorials",
+  "version": "0.0.0-semantically-released",
+  "private": true,
+  "license": "UNLICENSED",
+  "workspaces": [
+    "studio",
+    "web"
+  ],
+  "main": "",
+  "scripts": {
+    "dev:studio": "cd studio && yarn start",
+    "dev:web": "cd web && yarn dev",
+    "build": "yarn build:studio && yarn build:web",
+    "build:studio": "cd studio && yarn build",
+    "build:web": "cd web && yarn build",
+    "start": "cd web && yarn start"
+  },
+  "engines": {
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.20.0"
+  },
+  "dependencies": {
+    "@types/node": "^15.12.1",
+    "@types/react": "17.0.9",
+    "@types/react-dom": "17.0.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.2"
+  },
+  "devDependencies": {}
+}

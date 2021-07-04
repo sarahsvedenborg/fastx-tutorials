@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./styles/toggle.module.scss";
 
 interface ToggleProps {
   toggleType: string;
@@ -29,18 +28,18 @@ export const Toggle = ({
   const getStyleClass = () => {
     switch (toggleType) {
       case "Mode":
-        return styles.mode;
+        return "mode";
       case "Language":
-        return styles.language;
+        return "language";
       default:
-        return styles.default;
+        return "default";
     }
   };
 
   return (
-    <div className={[styles.toggle, getStyleClass()].join(" ")}>
-      <div className={isDefault ? styles.barTrue : styles.barFalse}>
-        <div className={styles.symbol} onClick={swapMode}></div>
+    <div className={["toggle", getStyleClass()].join(" ")} onClick={swapMode}>
+      <div className={isDefault ? "barTrue" : "barFalse"}>
+        <div className="symbol"></div>
       </div>
     </div>
   );

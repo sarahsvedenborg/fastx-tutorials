@@ -32,3 +32,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Styling
+
+The project uses normal CSS3 with SCSS. As the application supports both dark mode and light mode, the stylesheets are structured as follows:
+
+global.scss: all default values and global values.
+themeDark.scss: all dark theme specific styles
+lightTheme.scss: same structure as themeDark.scss, but with the light details.
+All other pages and components have their own scss file which begins with a wrapping style, i.e.: a tutorial plage component's stylesheet begins wilth .tutorialPage {...} and all its styles are nested in there. If they should be overwritten by light or dark theme, then the .tutorialPage class must be added to and overwritten in lightTheme.scss and/or themeDark.scss.
+
+moreover, all components have thei own style folder in the components folder. All these styles are then importen in the globasl.sccs file. All pages have their own style-files in the styles folder at the root of the project.

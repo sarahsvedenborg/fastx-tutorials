@@ -1,0 +1,24 @@
+.themeDark {
+  background-color: var(--dm-background-color);
+  color: white;
+  transition: 0.3s;
+  background-image: url("../public/HeaderBackground.svg");
+  background-size: cover;
+  width: 100%;
+  .tutorialPage {
+    background-color: var(--dm-background-color);
+    color: white;
+    .contentContainer {
+      .sideMenu ul {
+        border-right: 1px solid white;
+      }
+      code {
+        color: white;
+      }
+    }
+    .sectionMenu .selected {
+      background-color: white;
+      color: var(--dm-background-color);
+    }
+  }
+}

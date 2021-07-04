@@ -44,6 +44,7 @@ import { tutorial, tutorialSection } from "./tutorial";
 import author from "./author";
 import simpleLink from "./objects/simpleLink";
 import adventure from "./adventure";
+import gallery from "./objects/gallery";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -64,5 +65,6 @@ export default createSchema({
     tutorialSection,
     localeString,
     simpleLink,
+    gallery,
   ]),
 });

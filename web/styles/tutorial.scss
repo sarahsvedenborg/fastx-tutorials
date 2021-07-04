@@ -32,12 +32,16 @@
       justify-content: center;
     }
   }
+  .slideshowContainer {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
   .contentContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
     max-width: 1024px;
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
     font-family: var(--font-body);
     .sideMenu {
       flex-basis: 25%;
@@ -50,7 +54,8 @@
         margin-right: 30px;
         padding-right: 10px;
         li {
-          padding-bottom: 5px;
+          padding-bottom: 1em;
+          cursor: pointer;
         }
         li:hover {
           font-weight: bold;
@@ -59,8 +64,8 @@
     }
     .content {
       flex-basis: 70%;
+      padding: 0 1em;
       .intro {
-        width: 90%;
         .objectives {
           h3 {
             font-family: var(--font-heading);
@@ -74,6 +79,28 @@
       }
       pre {
         margin: 2em 0em;
+      }
+    }
+  }
+  .tutorialFooter {
+    background-color: grey;
+    width: 100%;
+    padding: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  .tutorialPage {
+    .contentContainer {
+      justify-content: center;
+      .sideMenu {
+        display: none;
+      }
+      .content {
+        flex-basis: 100%;
+        .intro {
+          margin: 0 auto;
+        }
       }
     }
   }

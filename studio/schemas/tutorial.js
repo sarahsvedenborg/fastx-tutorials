@@ -78,6 +78,16 @@ export const tutorial = {
       },
     },
     {
+      name: "slides",
+      title: "Slides - images",
+      type: "gallery",
+    },
+    {
+      name: "slidesLink",
+      title: "Slides downloadable",
+      type: "file",
+    },
+    {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",

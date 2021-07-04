@@ -1,0 +1,37 @@
+.sectionMenu {
+  ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 500px;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      background-color: transparent;
+      color: inherit;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .selected {
+      background-color: var(--dm-background-color);
+      color: white;
+    }
+  }
+  h4 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .sectionMenu {
+    display: none;
+  }
+}

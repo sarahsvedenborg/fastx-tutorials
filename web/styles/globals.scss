@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo:wght@700&family=Montserrat:wght@400;700&display=swap");
 @import "Home.module.scss";
+@import "darkTheme.scss";
+@import "lightTheme.scss";
+@import "tutorial.scss";
+@import "../components/styles";
+//@import "../components/styles/sectionMenu.scss";
 
 html,
 body {
@@ -16,44 +21,6 @@ body {
   background-color: white;
   /*   background-image: url("../public/HeaderBackground.svg");
   background-size: cover; */
-}
-
-.themeLight {
-  background-color: white;
-  color: #26323d;
-  transition: 0.3s;
-  .tutorialPage {
-    background-color: white;
-    color: var(--dm-background-color);
-    .contentContainer {
-      ul {
-        border-right: 1px solid var(--dm-background-color);
-      }
-      code {
-        color: white;
-      }
-    }
-  }
-}
-.themeDark {
-  background-color: var(--dm-background-color);
-  color: white;
-  transition: 0.3s;
-  background-image: url("../public/HeaderBackground.svg");
-  background-size: cover;
-  width: 100%;
-  .tutorialPage {
-    background-color: var(--dm-background-color);
-    color: white;
-    .contentContainer {
-      ul {
-        border-right: 1px solid white;
-      }
-      code {
-        color: white;
-      }
-    }
-  }
 }
 
 a {
@@ -86,6 +53,15 @@ a {
   --font-body: "Montserrat", sans-serif;
   --width-max: 1024px;
 
+  .footer {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #342547;
+  }
+
   /*   lm = Light Mode */
   --lm-background-color: #fafbfa;
 }
@@ -95,3 +71,28 @@ a {
     flex-direction: row;
     justify-content: flex-end;
   } */
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) {
+  .image {
+    display: none;
+  }
+  .heading {
+    font-size: small !important;
+  }
+  .tagline {
+    display: none;
+  }
+} */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+//@media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) */
+//@media only screen and (min-width: 768px) {...}
+
+/* Large devices (laptops/desktops, 992px and up) */
+//@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+//@media only screen and (min-width: 1200px) {...}

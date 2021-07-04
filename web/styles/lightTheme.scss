@@ -1,0 +1,17 @@
+.themeLight {
+  background-color: white;
+  color: #26323d;
+  transition: 0.3s;
+  .tutorialPage {
+    background-color: white;
+    color: var(--dm-background-color);
+    .contentContainer {
+      .sideMenu ul {
+        border-right: 1px solid var(--dm-background-color);
+      }
+      code {
+        color: white;
+      }
+    }
+  }
+}
