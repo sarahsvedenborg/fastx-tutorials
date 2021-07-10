@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import client from "../client";
 import styles from "../styles/Home.module.scss";
+import HeaderBackgroundSVG from "../components/icons/speechBubbles";
 
 interface HomeProps {
   tutorials: any[];
@@ -30,17 +31,19 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.hero}>
-          <div className={styles.child}>
-            <p className={[styles.tagline, "tagline"].join(" ")}>
-              Synlighetsteamet i Xperience Solutions gir deg
-            </p>
-            <h1 className={[styles.title, "heading"].join(" ")}>
-              Web tutorials og workshops
-            </h1>
-          </div>
-          <div className={[styles.child, styles.image, "image"].join(" ")}>
-            <object data="headerBackground2.svg" />
+        <div className={styles.heroWrapper}>
+          <div className={styles.hero}>
+            <div className={styles.child}>
+              <p className={[styles.tagline, "tagline"].join(" ")}>
+                Synlighetsteamet i Xperience Solutions gir deg
+              </p>
+              <h1 className={[styles.title, "heading"].join(" ")}>
+                Web tutorials og workshops
+              </h1>
+            </div>
+            <div className={[styles.child, styles.image, "image"].join(" ")}>
+              <object data="headerBackground2.svg" />
+            </div>
           </div>
         </div>
 

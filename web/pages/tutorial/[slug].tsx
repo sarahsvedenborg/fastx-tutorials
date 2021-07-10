@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,6 +7,7 @@ import Toggle from "../../components/Toggle";
 import Carousel from "../../components/carousel";
 import SectionMenu from "../../components/sectionMenu/sectionMenu";
 import { PortableText } from "../../lib/sanity";
+import { getCookieParser } from "next/dist/next-server/server/api-utils";
 
 interface TutorialProps {
   tutorial: {
@@ -25,9 +26,15 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
   console.log("locale", locale);
   const { title, scopeType, introduction, objectives, sections, slides } =
     tutorial;
+
+  const sectionRefs = sections.map(() => useRef());
   const [isSlides, setIsSlides] = useState(false);
   const toggleSlides = () => {
     setIsSlides(!isSlides);
+  };
+
+  const scrollTo = (ref) => {
+    ref.current.scrollIntoView();
   };
   return (
     <div className="tutorialPage">
@@ -69,15 +76,21 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
                 <li>
                   <h3>Sections</h3>
                 </li>
-                {sections.map((section) => (
-                  <li>{section.title.no}</li>
+                {sections.map((section, i) => (
+                  <li onClick={() => scrollTo(sectionRefs[i])}>
+                    {section.title.no}
+                  </li>
                 ))}
               </ul>
             </div>
           )}
           <div className="content">
             <SectionMenu
-              sectionHeadings={sections.map((section) => section.title.no)}
+              scrollTo={scrollTo}
+              sectionHeadings={sections.map((section: any, i: number) => ({
+                heading: section.title.no,
+                ref: sectionRefs[i],
+              }))}
             />
             <div className="intro">
               <p style={{ fontWeight: "bold" }}>{introduction.no}</p>
@@ -91,8 +104,8 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
             </div>
             <div className="body">
               {Array.isArray(sections) &&
-                sections.map((section) => (
-                  <div>
+                sections.map((section, i) => (
+                  <div ref={sectionRefs[i]}>
                     <h2>{section.title.no}</h2>
                     <PortableText blocks={section.body} />
                   </div>

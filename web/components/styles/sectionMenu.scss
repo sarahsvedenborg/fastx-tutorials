@@ -1,4 +1,5 @@
 .sectionMenu {
+  display: none;
   ul {
     display: flex;
     flex-direction: row;
@@ -32,6 +33,6 @@
 
 @media (max-width: 600px) {
   .sectionMenu {
-    display: none;
+    display: block;
   }
 }

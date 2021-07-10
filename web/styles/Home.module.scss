@@ -4,7 +4,22 @@
   background-image: url("../public/HeaderBackground.svg");
   background-size: auto 100vh;
   background-repeat: no-repeat;
+  /* 
+  .heroWrapper {
+    background-image: url("../public/HeaderBackground.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  } */
 }
+
+/* .main::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url(../public/HeaderBackground.svg);
+} */
 
 /*
 .title a {
@@ -193,6 +208,8 @@
 @media (max-width: 600px) {
   .main {
     background-image: url("../public/BackgroundMobile.svg");
+    /*     .heroWrapper {
+      background-image: url("../public/BackgroundMobile.svg"); */
     .hero {
       padding: 3em 1em;
       .child {

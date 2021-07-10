@@ -8,7 +8,7 @@ const Carousel = ({ slides }: CarouselProps) => {
   return (
     <div className="carousel">
       {Array.isArray(slides) &&
-        slides.map((slide) => <img src={urlFor(slide)}></img>)}
+        slides.map((slide) => <img src={urlFor(slide).url()!}></img>)}
     </div>
   );
 };
