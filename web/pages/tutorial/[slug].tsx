@@ -15,9 +15,9 @@ interface TutorialProps {
     slug: { current: string };
     scopeType: string;
     introduction: { no: string; en: string };
-    objectives: string[];
-    sections: any;
-    slides: any[];
+    objectives?: string[];
+    sections?: any;
+    slides?: any[];
   };
   locale: string;
 }
@@ -33,7 +33,7 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
     setIsSlides(!isSlides);
   };
 
-  const scrollTo = (ref) => {
+  const scrollTo = (ref: any) => {
     ref.current.scrollIntoView();
   };
   return (
@@ -138,7 +138,8 @@ export async function getStaticPaths({ locales }) {
     })
   );
   return {
-    paths: pathsNO.concat(pathsENG),
+    //paths: pathsNO.concat(pathsENG),
+    paths: pathsNO,
     fallback: false, // See the "fallback" section below
   };
 }

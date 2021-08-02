@@ -15,7 +15,7 @@ const SectionMenu = ({ sectionHeadings, scrollTo }: SectionMenuProps) => {
   const [activeSection, setActiveSection] = useState(
     sectionHeadings[0].heading
   );
-  const handleClick = (index) => {
+  const handleClick = (index: number) => {
     scrollTo(sectionHeadings[index].ref);
     setActiveSection(sectionHeadings[index].heading);
   };

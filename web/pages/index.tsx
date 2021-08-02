@@ -2,8 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import client from "../client";
-import styles from "../styles/Home.module.scss";
-import HeaderBackgroundSVG from "../components/icons/speechBubbles";
+import BackgroundBottom from "../components/icons/backgroundBottom";
+import MobileBubbles from "../components/icons/mobileBubbles";
 
 interface HomeProps {
   tutorials: any[];
@@ -19,10 +19,9 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
 
   return (
     <div
-      className={[
-        styles.container,
-        isDarkMode ? styles.themeDark : styles.themeLight,
-      ].join(" ")}
+      className={["container", isDarkMode ? "themeDark" : "themeLight"].join(
+        " "
+      )}
     >
       <Head>
         <title>Tutorials</title>
@@ -30,31 +29,32 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.heroWrapper}>
-          <div className={styles.hero}>
-            <div className={styles.child}>
-              <p className={[styles.tagline, "tagline"].join(" ")}>
+      <main className="main">
+        <div className="heroWrapper">
+          <div className="hero">
+            <div className="child">
+              <p className="tagline">
                 Synlighetsteamet i Xperience Solutions gir deg
               </p>
-              <h1 className={[styles.title, "heading"].join(" ")}>
-                Web tutorials og workshops
-              </h1>
+              <h1 className="title heading">Web tutorials og workshops</h1>
             </div>
-            <div className={[styles.child, styles.image, "image"].join(" ")}>
-              <object data="headerBackground2.svg" />
+            <div className="child image">
+              <object data="headerBackground2.svg" className="fullWidthImage" />
+              <object data="mobileBubbles.svg" className="mobileImage" />
+              {/*        <MobileBubbles /> */}
             </div>
           </div>
         </div>
+        <BackgroundBottom />
 
-        <div className={styles.tutorials}>
+        <div className="tutorials">
           <ul>
             {Array.isArray(tutorials) &&
               tutorials.map((tutorial, i) => (
                 <li key={tutorial.slug.current} style={setBackground(i + 1)}>
                   <Link href={`/tutorial/${tutorial.slug.current}`}>
                     <a>
-                      <div className={styles.course}>
+                      <div className="course">
                         <h6>{tutorial.scopeType}</h6>
                         <h4>{tutorial.title}</h4>
                       </div>
