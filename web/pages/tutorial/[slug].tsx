@@ -119,11 +119,12 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
   );
 }
 
-export async function getStaticPaths({ locales }) {
+export async function getStaticPaths() {
   /*   const res = await fetch("https://.../posts");
   const tutorials = await res.json(); */
 
-  const tutorials = await client.fetch(`*[_type == "tutorial"]`);
+  //const tutorials = await client.fetch(`*[_type == "tutorial"]`);
+  const tutorials = await client.fetch(`*[slug == "sanity"]`);
 
   const pathsNO = tutorials.map(
     (tutorial: { title: string; slug: { current: string } }) => ({
@@ -138,13 +139,14 @@ export async function getStaticPaths({ locales }) {
     })
   );
   return {
-    //paths: pathsNO.concat(pathsENG),
-    paths: pathsNO,
+    paths: pathsNO.concat(pathsENG),
+    //paths: tutorials.map(tutorial => ({params: {slug: tutorial.slug.current}})),
     fallback: false, // See the "fallback" section below
   };
 }
 
 export async function getStaticProps({ params }: any) {
+  console.log("building slug: " + params.slug)
   const locale = params.locale ?? "no-NB";
   const tutorial = await client.fetch(
     `
