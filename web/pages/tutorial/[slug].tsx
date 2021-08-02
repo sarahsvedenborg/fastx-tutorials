@@ -24,7 +24,7 @@ interface TutorialProps {
 
 export default function Tutorial({ tutorial, locale }: TutorialProps) {
   console.log("locale", locale);
-  const { title, scopeType, introduction, objectives, sections, slides } =
+  const { title = "", scopeType = "", introduction = [], objectives, sections= [{title:""}], slides } =
     tutorial;
 
   const sectionRefs = sections.map(() => useRef());
@@ -85,13 +85,13 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
             </div>
           )}
           <div className="content">
-            <SectionMenu
+          {Array.isArray(sections) && (<SectionMenu
               scrollTo={scrollTo}
               sectionHeadings={sections.map((section: any, i: number) => ({
                 heading: section.title.no,
                 ref: sectionRefs[i],
               }))}
-            />
+            />)}
             <div className="intro">
               <p style={{ fontWeight: "bold" }}>{introduction.no}</p>
               <div className="objectives">
@@ -123,8 +123,8 @@ export async function getStaticPaths() {
   /*   const res = await fetch("https://.../posts");
   const tutorials = await res.json(); */
 
-  //const tutorials = await client.fetch(`*[_type == "tutorial"]`);
-  const tutorials = await client.fetch(`*[slug == "sanity"]`);
+  const tutorials = await client.fetch(`*[_type == "tutorial"]`);
+  //const tutorials = await client.fetch(`*[slug == "sanity"]`);
 
   const pathsNO = tutorials.map(
     (tutorial: { title: string; slug: { current: string } }) => ({
