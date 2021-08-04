@@ -66,6 +66,21 @@ a {
   --lm-background-color: #fafbfa;
 }
 
+.table {
+  display: flex;
+  flex-direction: column;
+  .row{
+display: flex;
+flex-direction: row;
+.cell{
+  border: 1px solid white;
+}
+.cell:first-of-type{
+  width: 20%;
+}
+  }
+}
+
 /*   .optionsMenu {
     display: flex;
     flex-direction: row;

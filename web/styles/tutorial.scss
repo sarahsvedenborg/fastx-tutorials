@@ -80,6 +80,12 @@
       pre {
         margin: 2em 0em;
       }
+      a{
+        text-decoration: underline;
+        &:hover{
+          color: orange;
+        }
+      }
     }
   }
   .tutorialFooter {

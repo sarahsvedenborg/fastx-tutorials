@@ -27,6 +27,14 @@ export const PortableText = createPortableTextComponent({
           <code>{props.node.code}</code>
         </pre>
       ),
+      table: (props) => {
+        console.log("props", props.node.rows)
+        return (
+          <div class="table">
+        {props.node.rows.map((row) => (
+          <div class="row">{row.cells.map(col => (<div class="cell"><p>{col}</p></div>))}</div>
+        ))}
+        </div>)}
     },
   },
 });

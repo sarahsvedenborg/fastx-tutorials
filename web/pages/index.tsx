@@ -6,11 +6,16 @@ import BackgroundBottom from "../components/icons/backgroundBottom";
 import MobileBubbles from "../components/icons/mobileBubbles";
 
 interface HomeProps {
+  homepage: {
+    title: string;
+    subtitle: string;
+  }
   tutorials: any[];
   isDarkMode: boolean;
 }
 
-export default function Home({ tutorials, isDarkMode }: HomeProps) {
+export default function Home({ homepage, tutorials, isDarkMode }: HomeProps) {
+
   const setBackground = (index: number) => {
     return {
       backgroundImage: `url(tutorialBackgrounds/background${index}.svg);`,
@@ -34,9 +39,9 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
           <div className="hero">
             <div className="child">
               <p className="tagline">
-                Synlighetsteamet i Xperience Solutions gir deg
+                {homepage.subtitle}
               </p>
-              <h1 className="title heading">Web tutorials og workshops</h1>
+              <h1 className="title heading">{homepage.title}</h1>
             </div>
             <div className="child image">
               <object data="headerBackground2.svg" className="fullWidthImage" />
@@ -69,18 +74,19 @@ export default function Home({ tutorials, isDarkMode }: HomeProps) {
   );
 }
 
-export async function getStaticProps({ params }: any) {
-  const locale = params?.locale ?? "no";
+export async function getStaticProps({ locale }: any) {
   const tutorials = await client.fetch(
     `
-      *[_type == "tutorial"]|order(scopeType desc)
+      *[_type == "tutorial"]|order(scopeType desc){slug, 'title': ${locale.substr(0,2)}.title, 'scopeType': ${locale.substr(0,2)}.scopeType}
     `
   );
+  const homepage = await client.fetch(`*[_type == 'home'][0]{'body': ${locale.substr(0,2)}}`)
 
   // By returning { props: { tutorial } }, the Tutorial component
   // will receive `tutorial` as a prop at build time
   return {
     props: {
+      homepage: homepage.body,
       tutorials,
       locale,
     },

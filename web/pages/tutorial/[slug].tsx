@@ -1,5 +1,4 @@
-import { useRef, useState } from "react";
-import { useRouter } from "next/router";
+import { useRef, useState, useMemo, createRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import client from "../../client";
@@ -7,10 +6,10 @@ import Toggle from "../../components/Toggle";
 import Carousel from "../../components/carousel";
 import SectionMenu from "../../components/sectionMenu/sectionMenu";
 import { PortableText } from "../../lib/sanity";
-import { getCookieParser } from "next/dist/next-server/server/api-utils";
 
 interface TutorialProps {
   tutorial: {
+body:{
     title: string;
     slug: { current: string };
     scopeType: string;
@@ -18,23 +17,27 @@ interface TutorialProps {
     objectives?: string[];
     sections?: any;
     slides?: any[];
-  };
+    }
+  },
   locale: string;
 }
 
 export default function Tutorial({ tutorial, locale }: TutorialProps) {
-  console.log("locale", locale);
   const { title = "", scopeType = "", introduction = [], objectives, sections= [{title:""}], slides } =
-    tutorial;
+    tutorial.body;
 
-  const sectionRefs = sections.map(() => useRef());
-  const [isSlides, setIsSlides] = useState(false);
-  const toggleSlides = () => {
-    setIsSlides(!isSlides);
-  };
+    const [isSlides, setIsSlides] = useState(false);
+    const toggleSlides = () => {
+      setIsSlides(!isSlides);
+    };
+
+    //const sectionRefs = sections.map(()=> useRef())
+   const sectionRefs = useMemo(() => {
+    return sections.map(() => createRef());
+  }, [locale])  
 
   const scrollTo = (ref: any) => {
-    ref.current.scrollIntoView();
+    ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
   return (
     <div className="tutorialPage">
@@ -78,22 +81,22 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
                 </li>
                 {sections.map((section, i) => (
                   <li onClick={() => scrollTo(sectionRefs[i])}>
-                    {section.title.no}
+                    {section.title}
                   </li>
                 ))}
               </ul>
             </div>
           )}
           <div className="content">
-          {Array.isArray(sections) && (<SectionMenu
+         {Array.isArray(sections) && (<SectionMenu
               scrollTo={scrollTo}
               sectionHeadings={sections.map((section: any, i: number) => ({
-                heading: section.title.no,
+                heading: section.title,
                 ref: sectionRefs[i],
               }))}
-            />)}
+            />)} 
             <div className="intro">
-              <p style={{ fontWeight: "bold" }}>{introduction.no}</p>
+              <p style={{ fontWeight: "bold" }}>{introduction}</p>
               <div className="objectives">
                 <h3>Objectives</h3>
                 <ol>
@@ -105,8 +108,8 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
             <div className="body">
               {Array.isArray(sections) &&
                 sections.map((section, i) => (
-                  <div ref={sectionRefs[i]}>
-                    <h2>{section.title.no}</h2>
+                  <div key={i+locale} ref={sectionRefs[i]}>
+                    <h2>{section.title}</h2>
                     <PortableText blocks={section.body} />
                   </div>
                 ))}
@@ -120,11 +123,8 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
 }
 
 export async function getStaticPaths() {
-  /*   const res = await fetch("https://.../posts");
-  const tutorials = await res.json(); */
 
   const tutorials = await client.fetch(`*[_type == "tutorial"]`);
-  //const tutorials = await client.fetch(`*[slug == "sanity"]`);
 
   const pathsNO = tutorials.map(
     (tutorial: { title: string; slug: { current: string } }) => ({
@@ -132,25 +132,24 @@ export async function getStaticPaths() {
       locale: "no-NB",
     })
   );
-  const pathsENG = tutorials.map(
+   const pathsENG = tutorials.map(
     (tutorial: { title: string; slug: { current: string } }) => ({
       params: { slug: tutorial.slug.current },
       locale: "en-US",
     })
-  );
+  ); 
   return {
     paths: pathsNO.concat(pathsENG),
-    //paths: tutorials.map(tutorial => ({params: {slug: tutorial.slug.current}})),
     fallback: false, // See the "fallback" section below
   };
 }
 
-export async function getStaticProps({ params }: any) {
-  console.log("building slug: " + params.slug)
-  const locale = params.locale ?? "no-NB";
+export async function getStaticProps({ params, locale }: any) {
+  console.log("locale initial", locale)
+  //const locale = params.locale ?? "no-NB";
   const tutorial = await client.fetch(
     `
-      *[_type == "tutorial" && slug.current == $slug][0]
+      *[_type == "tutorial" && slug.current == $slug][0]{_id, slug, 'body': ${locale.substr(0,2)}}
     `,
     { slug: params.slug }
   );

@@ -1,7 +1,7 @@
 import { urlFor } from "../lib/sanity";
 
 interface CarouselProps {
-  slides: any[];
+  slides?: any[];
 }
 
 const Carousel = ({ slides }: CarouselProps) => {
