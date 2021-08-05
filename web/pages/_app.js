@@ -4,21 +4,18 @@ import "../styles/globals.scss";
 import Navigation from "../components/navigation";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const {locale} = router
   let [isDarkMode, setIsDarkMode] = useState(true);
-  let [isNorwegian, setIsNorwegian] = useState(true);
+  let [isNorwegian, setIsNorwegian] = useState(locale == 'no-NB');
   const toggleMode = () => {
-    console.log("currentMode is dark", isDarkMode);
     setIsDarkMode(!isDarkMode);
   };
   const toggleLanguage = () => {
-    console.log("current langu is norwegian", isNorwegian);
-    setIsNorwegian(!isNorwegian);
+    router.push('', '', {locale: !isNorwegian ? 'no-NB' : 'en-US'})
+    setIsNorwegian(!isNorwegian); 
   };
-  /*   console.log("props", pageProps.__NEXT_LOCALE__);
 
-  const router = useRouter();
-  router.push({ locale: "en-US" });
-  console.log("router locale", router.locale); */
   return (
     <div className={["app", isDarkMode ? "themeDark" : "themeLight"].join(" ")}>
       <Navigation
@@ -27,7 +24,7 @@ function MyApp({ Component, pageProps }) {
         toggleLanguage={toggleLanguage}
         isNorwegian={isNorwegian}
       />
-      <Component {...pageProps} isDarkMode={isDarkMode} />
+      <Component {...pageProps} isDarkMode={isDarkMode}/>
       <footer className="footer">
         <span>Laget av ...</span>
       </footer>

@@ -21,7 +21,6 @@ const Navigation = ({
       <div className="navBlock">
         <Link href="/">
           <a>
-            {/* <img src="Logo.svg" width="30" /> */}
             <LogoFull />
           </a>
         </Link>

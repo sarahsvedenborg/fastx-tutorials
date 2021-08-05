@@ -1,102 +1,114 @@
 import { RiFilePaper2Line } from "react-icons/Ri";
+import createLocaleDocument from "./objects/localeWrapper";
+
+const tutorialFields = [
+  {
+    name: "title",
+    title: "Title",
+    type: "string",
+  },
+  {
+    name: "slug",
+    title: "Slug",
+    type: "slug",
+    options: {
+      source: "title",
+      maxLength: 96,
+    },
+  },
+  {
+    name: "scopeType",
+    title: "Scope type",
+    type: "string",
+    of: [{ type: "string" }],
+    options: {
+      list: [
+        { title: "Lightning", value: "Lightning" },
+        { title: "Normal", value: "Normal" },
+        { title: "Extensive", value: "Extensive" },
+        { title: "Combined", value: "Combined" },
+      ],
+    },
+  },
+  {
+    name: "resources",
+    title: "Useful links",
+    type: "array",
+    of: [{ type: "simpleLink" }],
+  },
+  {
+    name: "introduction",
+    title: "Introduction",
+    type: "string",
+  },
+  {
+    name: "objectives",
+    title: "Objectives",
+    type: "array",
+    of: [{ type: "string" }],
+  },
+  {
+    name: "sections",
+    title: "Sections",
+    type: "array",
+    of: [{ type: "tutorialSection" }],
+  },
+  {
+    name: "subtutorials",
+    title: "Sub tutorials",
+    type: "array",
+    of: [{ type: "reference", to: { type: "tutorial" } }],
+  },
+  {
+    name: "author",
+    title: "Author",
+    type: "reference",
+    to: { type: "author" },
+  },
+  {
+    name: "mainImage",
+    title: "Main image",
+    type: "image",
+    options: {
+      hotspot: true,
+    },
+  },
+  {
+    name: "slides",
+    title: "Slides - images",
+    type: "gallery",
+  },
+  {
+    name: "slidesLink",
+    title: "Slides downloadable",
+    type: "file",
+  },
+  {
+    name: "publishedAt",
+    title: "Published at",
+    type: "datetime",
+  },
+]
 
 export const tutorial = {
   name: "tutorial",
   title: "Tutorials",
   type: "document",
   icon: RiFilePaper2Line,
-  fields: [
-    {
-      name: "title",
-      title: "Title",
-      type: "string",
+  fields: [ {
+    name: "slug",
+    title: "Slug",
+    type: "slug",
+    options: {
+      source: "title",
+      maxLength: 96,
     },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-    },
-    {
-      name: "scopeType",
-      title: "Scope type",
-      type: "string",
-      of: [{ type: "string" }],
-      options: {
-        list: [
-          { title: "Lightning", value: "Lightning" },
-          { title: "Normal", value: "Normal" },
-          { title: "Extensive", value: "Extensive" },
-          { title: "Combined", value: "Combined" },
-        ],
-      },
-    },
-    {
-      name: "resources",
-      title: "Useful links",
-      type: "array",
-      of: [{ type: "simpleLink" }],
-    },
-    {
-      name: "introduction",
-      title: "Introduction",
-      type: "localeString",
-    },
-    {
-      name: "objectives",
-      title: "Objectives",
-      type: "array",
-      of: [{ type: "string" }],
-    },
-    {
-      name: "sections",
-      title: "Sections",
-      type: "array",
-      of: [{ type: "tutorialSection" }],
-    },
-    {
-      name: "subtutorials",
-      title: "Sub tutorials",
-      type: "array",
-      of: [{ type: "reference", to: { type: "tutorial" } }],
-    },
-    {
-      name: "author",
-      title: "Author",
-      type: "reference",
-      to: { type: "author" },
-    },
-    {
-      name: "mainImage",
-      title: "Main image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: "slides",
-      title: "Slides - images",
-      type: "gallery",
-    },
-    {
-      name: "slidesLink",
-      title: "Slides downloadable",
-      type: "file",
-    },
-    {
-      name: "publishedAt",
-      title: "Published at",
-      type: "datetime",
-    },
-  ],
+  },
+  ...createLocaleDocument(tutorialFields)],
 
   preview: {
     select: {
-      title: "title",
+      title: "no.title",
       author: "author.name",
       media: "mainImage",
     },
@@ -117,25 +129,8 @@ export const tutorialSection = {
     {
       name: "title",
       title: "Section title",
-      type: "localeString",
+      type: "string",
     },
-    /*     {
-      name: "content",
-      title: "Section content",
-      type: "array",
-      of: [
-        {
-          name: "body",
-          title: "Text",
-          type: "blockContent",
-        },
-        {
-          name: "code",
-          title: "Code",
-          type: "code",
-        },
-      ],
-    }, */
     {
       name: "body",
       title: "Body",

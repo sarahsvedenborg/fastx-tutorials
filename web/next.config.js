@@ -24,4 +24,11 @@ module.exports = {
       },
     ], */
   },
+  eslint: {
+    // we run this in pipeline
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  }
 };

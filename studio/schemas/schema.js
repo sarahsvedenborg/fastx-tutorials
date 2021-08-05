@@ -14,7 +14,7 @@ const supportedLanguages = [
 
 const baseLanguage = supportedLanguages.find((l) => l.isDefault);
 
-const localeString = {
+/* const localeString = {
   title: "Localized string",
   name: "localeString",
   type: "object",
@@ -35,13 +35,15 @@ const localeString = {
     type: "string",
     fieldset: lang.isDefault ? null : "translations",
   })),
-};
+}; */
+
 
 // We import object and document schemas
 import blockContent from "./blockContent";
 import tag from "./tag";
 import { tutorial, tutorialSection } from "./tutorial";
 import author from "./author";
+import home from "./home";
 import simpleLink from "./objects/simpleLink";
 import adventure from "./adventure";
 import gallery from "./objects/gallery";
@@ -59,11 +61,11 @@ export default createSchema({
     author,
     tag,
     adventure,
+    home,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
     tutorialSection,
-    localeString,
     simpleLink,
     gallery,
   ]),

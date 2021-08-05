@@ -66,5 +66,10 @@ export default {
       title: "Code",
       type: "code",
     },
+    {
+      name: "table",
+      title: "Table",
+      type: "table",
+    },
   ],
 };

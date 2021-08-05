@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo:wght@700&family=Montserrat:wght@400;700&display=swap");
-@import "Home.module.scss";
+@import "Home.scss";
 @import "darkTheme.scss";
 @import "lightTheme.scss";
 @import "tutorial.scss";
@@ -64,6 +64,21 @@ a {
 
   /*   lm = Light Mode */
   --lm-background-color: #fafbfa;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  .row{
+display: flex;
+flex-direction: row;
+.cell{
+  border: 1px solid white;
+}
+.cell:first-of-type{
+  width: 20%;
+}
+  }
 }
 
 /*   .optionsMenu {
