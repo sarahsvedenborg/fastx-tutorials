@@ -1,31 +1,16 @@
 .main {
   width: 100%;
-  /*max-width: 1024px; */
-  /*   background-image: url("../public/HeaderBackground.svg");
-  background-size: auto 100vh;
-  background-repeat: no-repeat; */
-
   .heroWrapper {
     background-color: #1a0733;
   }
   .backgroundBottom {
     width: 100%;
-    color: red;
     svg {
       display: block;
       width: 100%;
     }
   }
 }
-
-/* .main::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background: url(../public/HeaderBackground.svg);
-} */
 
 /*
 .title a {
@@ -141,7 +126,6 @@
     .fullWidthImage {
       display: block;
       width: 100%;
-      /*  visibility: hidden; */
     }
     .mobileImage {
       display: none;
@@ -183,28 +167,7 @@
   }
 }
 
-/* .themeLight {
-  background-color: coral;
-  color: #26323d;
-  transition: 0.3s;
-}
-.themeDark {
-  background-color: var(--dm-background-color);
-  color: white;
-  transition: 0.3s;
-}
- */
-/* .container {
-  background-image: url("../public/HeaderBackground.svg");
-  width: 100%;
-} */
-
 .course {
-  /* color: var(--dm-background-color); */
-  /*   color: white;
-  padding: 20px; */
-  /*   padding: 0 10px 0 50px; */
-
   h6 {
     font-family: var(--font-body);
     margin-bottom: 0;
@@ -221,7 +184,6 @@
 //mobile phones
 @media (max-width: 480px) {
   .main {
-    /* background-image: url("../public/BackgroundMobile.svg"); */
     .heroWrapper {
       background-color: #1a0733;
       .hero {
@@ -255,7 +217,6 @@
 //tablets
 @media (min-width: 481px) and (max-width: 768px) {
   .main {
-    /* background-image: url("../public/BackgroundMobile.svg"); */
     .heroWrapper {
       background-color: #1a0733;
       .hero {
@@ -289,7 +250,6 @@
 //tablets
 @media (min-width: 481px) and (max-width: 768px) {
   .main {
-    /* background-image: url("../public/BackgroundMobile.svg"); */
     .heroWrapper {
       background-color: #1a0733;
       .hero {
@@ -323,7 +283,6 @@
 //tablets
 @media (min-width: 481px) and (max-width: 768px) {
   .main {
-    /* background-image: url("../public/BackgroundMobile.svg"); */
     .heroWrapper {
       background-color: #1a0733;
       .hero {
@@ -357,7 +316,6 @@
 //small screens
 @media (min-width: 769px) and (max-width: 1024px) {
   .main {
-    /* background-image: url("../public/BackgroundMobile.svg"); */
     .heroWrapper {
       background-color: #1a0733;
       .hero {
@@ -386,4 +344,17 @@
       }
     }
   }
+}
+
+.background1 {
+  background-image: url(/tutorialBackgrounds/background1.svg);
+}
+.background2 {
+  background-image: url(/tutorialBackgrounds/background2.svg);
+}
+.background3 {
+  background-image: url(/tutorialBackgrounds/background3.svg);
+}
+.background4 {
+  background-image: url(/tutorialBackgrounds/background4.svg);
 }

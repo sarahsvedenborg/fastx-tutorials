@@ -16,11 +16,12 @@ interface HomeProps {
 
 export default function Home({ homepage, tutorials, isDarkMode }: HomeProps) {
 
-  const setBackground = (index: number) => {
+/*   const setBackground = (index: number) => {
     return {
       backgroundImage: `url(tutorialBackgrounds/background${index}.svg);`,
     };
-  };
+  }; */
+  const setBackground = (index:number) => `background${index}`
 
   return (
     <div
@@ -56,7 +57,7 @@ export default function Home({ homepage, tutorials, isDarkMode }: HomeProps) {
           <ul>
             {Array.isArray(tutorials) &&
               tutorials.map((tutorial, i) => (
-                <li key={tutorial.slug.current} style={setBackground(i + 1)}>
+                <li key={tutorial.slug.current} className={'background'+(i+1)}>
                   <Link href={`/tutorial/${tutorial.slug.current}`}>
                     <a>
                       <div className="course">

@@ -6,6 +6,7 @@ interface ToggleProps {
   isDefault: boolean;
   trueValue: string;
   falseValue: string;
+  isLarge?: boolean;
 }
 
 export const Toggle = ({
@@ -14,6 +15,7 @@ export const Toggle = ({
   isDefault,
   trueValue,
   falseValue,
+  isLarge=false
 }: ToggleProps) => {
   const [selectedOption, setSelectedOption] = useState("row");
   const reverse = () => {
@@ -26,13 +28,14 @@ export const Toggle = ({
   };
 
   const getStyleClass = () => {
+    let styleClass = isLarge ? "large" : ""
     switch (toggleType) {
       case "Mode":
-        return "mode";
+        return styleClass + " mode";
       case "Language":
-        return "language";
+        return styleClass + " language";
       default:
-        return "default";
+        return styleClass + " default";
     }
   };
 

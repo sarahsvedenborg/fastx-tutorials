@@ -1,26 +1,53 @@
 .mobileMenuWrapper {
   display: none;
   float: right;
-  img {
+  button {
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
     cursor: pointer;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    img{
+      width: 30px;
+      height: 30px;
+    }
   }
   .mobileMenu {
     background-color: #423356;
     padding: 0.5em;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
     top: 0;
     left: 0;
     transition: left 1s;
     visibility: visible;
     width: 100%;
+    height: 100vh;
+    clip-path: circle(75%);
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+    .item{
+      margin: 3em;
+      .menuLabel{
+        color: white;
+        text-transform: uppercase;
+        font-size: xx-large;
+        font-weight: bold;
+        font-family: var(--font-heading);
+        margin-bottom: 0.5em;
+        text-align: center;
+      }
+    }
   }
   .closed {
     visibility: hidden;
-    left: 100%;
-    transition: left 1s;
+    clip-path: circle(25px at calc(100% - 45px) 45px);
+    transition: all 0.3s ease-in-out;
   }
 }
 

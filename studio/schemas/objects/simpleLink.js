@@ -1,5 +1,4 @@
 import { RiLink } from "react-icons/Ri";
-import { VscLink } from "react-icons/vsc";
 
 export default {
   name: "simpleLink",
