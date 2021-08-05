@@ -30,6 +30,9 @@
       align-items: center;
       font-weight: bold;
       justify-content: center;
+      .toggle{
+        padding: 0 3em;
+      }
     }
   }
   .slideshowContainer {
@@ -89,7 +92,8 @@
     }
   }
   .tutorialFooter {
-    background-color: grey;
+    background-color: #423356;
+    color: lavenderblush;
     width: 100%;
     padding: 1em;
   }
@@ -111,3 +115,4 @@
     }
   }
 }
+

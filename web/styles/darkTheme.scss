@@ -1,12 +1,14 @@
 .themeDark {
-  background-color: var(--dm-background-color);
+   background-color: var(--dm-background-color);
+  /* background-color: #301751; */
   color: white;
   transition: 0.3s;
-  background-image: url("../public/HeaderBackground.svg");
-  background-size: cover;
+/*   background-image: url("../public/HeaderBackground.svg");
+  background-size: cover; */
   width: 100%;
   .tutorialPage {
-    background-color: var(--dm-background-color);
+   /*  background-color: var(--dm-background-color); */
+    background-color: #301751;
     color: white;
     .contentContainer {
       .sideMenu ul {

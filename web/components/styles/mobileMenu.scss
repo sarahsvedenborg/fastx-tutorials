@@ -3,8 +3,8 @@
   float: right;
   button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 1.5em;
+    right: 1.5em;
     cursor: pointer;
     z-index: 1000;
     background-color: transparent;
@@ -31,14 +31,21 @@
     clip-path: circle(75%);
     transition: all 0.3s ease-in-out;
     z-index: 100;
-    .toggle{
-      margin: 2em;
+    .item{
+      margin: 3em;
+      .menuLabel{
+        color: white;
+        text-transform: uppercase;
+        font-size: xx-large;
+        font-weight: bold;
+        font-family: var(--font-heading);
+        margin-bottom: 0.5em;
+        text-align: center;
+      }
     }
   }
   .closed {
     visibility: hidden;
-    //left: 100%;
-    //transition: left 1s;
     clip-path: circle(25px at calc(100% - 45px) 45px);
     transition: all 0.3s ease-in-out;
   }

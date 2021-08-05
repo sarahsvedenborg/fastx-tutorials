@@ -9,24 +9,16 @@
   .navBlock {
     flex-basis: 50%;
     svg {
-      width: 88px;
+      height: 40px;
+      width: auto;
     }
   }
   .optionsMenu {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-  }
-  ul {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 0;
-    li {
-      flex-basis: 50%;
+    .toggle{
+      margin-left: 2em;
     }
   }
 }
