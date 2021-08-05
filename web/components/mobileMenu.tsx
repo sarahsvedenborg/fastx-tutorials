@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Toggle from "./Toggle";
+import MenuSVG from './icons/menuSVG'
+import CloseSVG from './icons/closeSVG'
 
 interface NavigationProps {
   isDarkMode: boolean;
@@ -17,11 +19,8 @@ const MobileMenu = ({
   const [isMenuOpen, setMenuOpen] = useState(false);
   return (
     <div className="mobileMenuWrapper">
-      <img
-        src="/mobileMenu.png"
-        aria-hidden
-        onClick={() => setMenuOpen(!isMenuOpen)}
-      />
+  {/*     <button onClick={() => setMenuOpen(!isMenuOpen)}>{isMenuOpen ? <CloseSVG /> : <MenuSVG />}</button>  */}
+      <button onClick={() => setMenuOpen(!isMenuOpen)}><img aria-hidden src={isMenuOpen ? '/close.png' : '/menu.png'}/></button> 
       <div className={["mobileMenu", isMenuOpen ? "" : "closed"].join(" ")}>
         <Toggle
           toggleType="Mode"
@@ -29,6 +28,7 @@ const MobileMenu = ({
           isDefault={isDarkMode}
           trueValue="Dark mode"
           falseValue="Light mode"
+          isLarge
         />
         <Toggle
           toggleType="Language"
@@ -36,6 +36,7 @@ const MobileMenu = ({
           isDefault={isNorwegian}
           trueValue="NOR"
           falseValue="ENG"
+          isLarge
         />
       </div>
     </div>

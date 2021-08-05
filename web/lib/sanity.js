@@ -34,7 +34,9 @@ export const PortableText = createPortableTextComponent({
         {props.node.rows.map((row) => (
           <div class="row">{row.cells.map(col => (<div class="cell"><p>{col}</p></div>))}</div>
         ))}
-        </div>)}
+        </div>)
+        },
+        file: (props) => (<a href={`${props.node.asset.url}?dl`}>{props.node.asset.originalFilename}</a>)
     },
   },
 });

@@ -17,13 +17,14 @@ body:{
     objectives?: string[];
     sections?: any;
     slides?: any[];
+    slidesLink?: any;
     }
   },
   locale: string;
 }
 
 export default function Tutorial({ tutorial, locale }: TutorialProps) {
-  const { title = "", scopeType = "", introduction = [], objectives, sections= [{title:""}], slides } =
+  const { title = "", scopeType = "", introduction = [], objectives, sections= [{title:""}], slides, slidesLink } =
     tutorial.body;
 
     const [isSlides, setIsSlides] = useState(false);
@@ -68,7 +69,7 @@ export default function Tutorial({ tutorial, locale }: TutorialProps) {
       </div>
       {isSlides && (
         <div className="slideshowContainer">
-          <Carousel slides={slides} />
+          <Carousel slides={slides} slidesLink={slidesLink}/>
         </div>
       )}
       {!isSlides && (
@@ -145,11 +146,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, locale }: any) {
-  console.log("locale initial", locale)
-  //const locale = params.locale ?? "no-NB";
   const tutorial = await client.fetch(
     `
-      *[_type == "tutorial" && slug.current == $slug][0]{_id, slug, 'body': ${locale.substr(0,2)}}
+      *[_type == "tutorial" && slug.current == $slug][0]{_id, slug, 'body': ${locale.substr(0,2)}{..., _type == 'file' => {"asset": {
+        "url": asset->url, "originalFilename": asset->originalFilename
+      }}}}
     `,
     { slug: params.slug }
   );

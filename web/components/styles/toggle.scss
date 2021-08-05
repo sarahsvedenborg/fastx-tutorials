@@ -154,3 +154,49 @@
     }
   }
 }
+
+//style for large toggle
+.large {
+  padding: 0 3em;
+  .barFalse {
+    cursor: pointer;
+    width: 170px;
+    height: 70px;
+    border-radius: 35px;
+ /*    background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.3)
+    ); */
+    background-color: #fff;
+    .symbol {
+      width: 60px;
+      height: 60px;
+      background-size: 100% 100%;
+      transform-origin: center center;
+      transform: translate(104px, 5px);
+      transition: all 0.5s ease-out;
+    }
+  }
+  .barTrue {
+    cursor: pointer;
+    transition: flex-direction 1s;
+    width: 170px;
+    height: 70px;
+    border-radius: 35px;
+  /*   background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.3)
+    ); */
+    background-color: #fff;
+    .symbol {
+      width: 60px;
+      height: 60px;
+      transform: translate(5px, 5px);
+      background-size: 100% 100%;
+      transition: all 0.5s ease-out;
+      transform-origin: center center;
+    }
+  }
+}

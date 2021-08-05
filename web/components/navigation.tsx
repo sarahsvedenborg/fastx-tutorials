@@ -46,7 +46,7 @@ const Navigation = ({
         toggleMode={toggleMode}
         isNorwegian={isNorwegian}
         toggleLanguage={toggleLanguage}
-      />
+      /> 
     </nav>
   );
 };

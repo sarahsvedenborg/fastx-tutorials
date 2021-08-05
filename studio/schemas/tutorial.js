@@ -1,4 +1,5 @@
 import { RiFilePaper2Line } from "react-icons/Ri";
+import { RiParagraph } from "react-icons/Ri";
 import createLocaleDocument from "./objects/localeWrapper";
 
 const tutorialFields = [
@@ -125,6 +126,7 @@ export const tutorialSection = {
   name: "tutorialSection",
   type: "object",
   title: "Tutorial section",
+  icon: RiParagraph,
   fields: [
     {
       name: "title",
